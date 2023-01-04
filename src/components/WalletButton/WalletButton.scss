@@ -1,0 +1,21 @@
+.wallet-connect-btn {
+  background: linear-gradient(to right, #424aab, #071aa3);
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: 500;
+  letter-spacing: 0.4;
+  text-transform: none;
+  border-style: none;
+  filter: drop-shadow(0 0 0.5rem #414141);
+  &:hover {
+    background: linear-gradient(to right, #6a71c9, #6170df);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .wallet-connect-btn {
+    margin-left: 15px;
+    width: 150px;
+  }
+}

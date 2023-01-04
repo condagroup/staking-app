@@ -1,0 +1,124 @@
+.stake {
+  .info-container {
+    width: 100%;
+    border: 1px solid #212121;
+    filter: drop-shadow(0 0 0.5rem #212121);
+    padding: 20px;
+    border-radius: 30px;
+    background-color: rgba(41, 42, 66, 0.3);
+  }
+}
+
+.avatar {
+  width: 90px;
+  border: 1px solid #f9f9f9;
+  height: 90px;
+  padding: 12px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  background-color: transparent;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  font-size: 1.25rem;
+  align-items: center;
+  flex-shrink: 0;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  line-height: 1;
+  user-select: none;
+  border-radius: 50%;
+  justify-content: center;
+
+  &__image {
+    color: transparent;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    text-align: center;
+    text-indent: 10000px;
+  }
+}
+
+.title {
+  text-align: center;
+  font-size: 22px;
+  color: #fff;
+}
+
+.round {
+  background-color: #c1c6ff;
+  border-radius: 50%;
+  height: 5px;
+  width: 5px;
+  margin-right: 5px;
+}
+
+.rpcLabel {
+  text-align: center;
+  color: #f9f9f9;
+  font-size: 12;
+  padding-top: 3px;
+}
+
+.icon {
+  width: 20px;
+  height: 100%;
+  margin-right: 10px;
+}
+
+.buyNow {
+  background: linear-gradient(to bottom, #3e76d5, #0c3aa1);
+  color: #fff;
+  width: fit-content;
+  height: 40px;
+  text-transform: none;
+  font-size: 15px;
+  border-radius: 40px;
+  border-style: none;
+  padding: 0px 20px;
+  &:hover {
+    background: rgb(105 130 254 / 70%);
+  }
+}
+
+.desktop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.tokenTitle {
+  font-weight: 500;
+  font-size: 14px;
+  padding: 0px 0px 3px 10px;
+  color: #e5e5e5;
+}
+
+.tokenAmount {
+  font-weight: 700;
+  padding-left: 10px;
+  font-size: 18px;
+  color: #c1c6ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stake-button {
+  width: 100%;
+}
+
+.description {
+  color: #fff;
+  font-size: 18px;
+}
+
+@media only screen and (max-width: 768px) {
+  .buyNow {
+    width: 120px;
+    font-size: 15px;
+  }
+  .desktop {
+    flex-direction: column;
+  }
+}

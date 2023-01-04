@@ -1,0 +1,25 @@
+.cardContainer {
+  margin: 120px 0px 40px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.subHeading {
+  font-size: 16px;
+  margin-top: 5px;
+  font-weight: 400;
+  color: #919191;
+}
+
+.no-pool {
+  text-align: center;
+  color: #fff;
+}
+
+@media only screen and (max-width: 768px) {
+  .subHeading {
+    font-size: 12px;
+  }
+}
