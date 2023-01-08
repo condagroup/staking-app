@@ -43,6 +43,13 @@
 }
 
 .launchpad {
+  &__project {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
   &__title {
     color: #fff;
     text-align: center;
@@ -91,6 +98,11 @@
       font-size: 13px;
       padding: 10px 0px;
     }
+  }
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: transform 0.6s ease;
   }
 }
 

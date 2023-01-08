@@ -6,7 +6,7 @@ import { Header } from "./components/Header/Header"
 import { Home } from "./pages/Home"
 import { Stake } from "./pages/Stake"
 import { Farm } from "./pages/Farm"
-import { Launchpad } from "./pages/Launchpad"
+import { Create, Launchpad, View } from "./pages/Launchpad"
 import "./App.scss"
 import "bootstrap/dist/css/bootstrap.min.css"
 
@@ -26,6 +26,8 @@ function App() {
           <Route path="/stake" element={<Stake />} />
           <Route path="/farm" element={<Farm />} />
           <Route path="/launchpad" element={<Launchpad />} />
+          <Route path="/launchpad/create" element={<Create />} />
+          <Route path="/launchpad/view/:viewId" element={<View />} />
         </Routes>
         <Footer />
       </ThemeProvider>
