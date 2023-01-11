@@ -4,6 +4,7 @@ import "./Create.scss"
 import { API } from "../../helpers/api";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import { ContentHeader } from "../../components/LaunchPad";
 
 export interface ProjectDataType {
   _id?: string,
@@ -63,12 +64,7 @@ export const Create: React.FC = () => {
   return (
     <div>
       <Container>
-        <div className="headStyle">
-          <div>
-            <h1 className="pageName">Launchpad</h1>
-            <div className="divider"></div>
-          </div>
-        </div>
+        <ContentHeader />
       </Container>
       <div className="create container">
           <Row className="justify-content-center">

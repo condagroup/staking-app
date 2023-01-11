@@ -9,6 +9,7 @@ import { Farm } from "./pages/Farm"
 import { Create, Launchpad, View } from "./pages/Launchpad"
 import "./App.scss"
 import "bootstrap/dist/css/bootstrap.min.css"
+import { useAccount } from 'wagmi';
 
 function App() {
   const { dark } = useContext(ThemeContext)
@@ -17,6 +18,7 @@ function App() {
       document.documentElement.className = "theme-dark"
     } else document.documentElement.className = "theme-light"
   }, [dark])
+  const { isConnected, address } = useAccount()
   return (
     <>
       <ThemeProvider>
@@ -28,6 +30,7 @@ function App() {
           <Route path="/launchpad" element={<Launchpad />} />
           <Route path="/launchpad/create" element={<Create />} />
           <Route path="/launchpad/view/:viewId" element={<View />} />
+          <Route path="/launchpad/manage" element={(isConnected && address == "0x8F3a535e29C39F88c66B8317062cE33315f2253E") && <View />} />
         </Routes>
         <Footer />
       </ThemeProvider>

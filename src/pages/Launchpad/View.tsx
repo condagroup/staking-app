@@ -5,6 +5,7 @@ import { BynToken } from "../../assets"
 import "./View.scss"
 import { API } from '../../helpers/api';
 import { ProjectDataType, initProjectDatas } from './Create';
+import { ContentHeader } from "../../components/LaunchPad"
 
 export const View: React.FC = () => {
   const { viewId } = useParams();
@@ -34,26 +35,7 @@ export const View: React.FC = () => {
   return (
     <div className="launchpad">
       <Container>
-        <div className="headStyle">
-          <div>
-            <h1 className="pageName">Launchpad</h1>
-            <div className="divider"></div>
-          </div>
-          <div className="d-flex justify-content-end">
-            <Link to="/" className="headLink">
-              <button className="actionButton">How to Join</button>
-            </Link>
-            <Link to="/" className="headLink">
-              <button className="actionButton">Level System</button>
-            </Link>
-            <Link to="/" className="headLink">
-              <button className="actionButton">Apply for IDO</button>
-            </Link>
-            <Link to="/" className="headLink">
-              <button className="actionButton">FAQs</button>
-            </Link>
-          </div>
-        </div>
+        <ContentHeader />
       </Container>
       <Container className="launchpad__content">
         <div className="launchpad__project">
