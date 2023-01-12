@@ -12,7 +12,7 @@ export const ContentHeader: React.FC = () => {
       </div>
       <div className="d-flex justify-content-end">
         {
-          (isConnected && address == "0x8F3a535e29C39F88c66B8317062cE33315f2253E") && 
+          (isConnected && address === process.env.REACT_APP_ADMIN_ADDRESS) && 
           <Link to="/launchpad/manage" className="headLink">
             <button className="actionButton">Manage Projects</button>
           </Link>

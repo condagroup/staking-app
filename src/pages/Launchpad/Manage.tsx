@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from "react"
 import { Button, Col, Container, Row } from "react-bootstrap"
-import { Link, useParams } from "react-router-dom"
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { BynToken } from "../../assets"
 import "./View.scss"
 import { API } from '../../helpers/api';
@@ -13,12 +13,24 @@ import { Form } from "react-bootstrap"
 import "./Manage.scss"
 
 export const Manage: React.FC = () => {
+  const navigate = useNavigate();
   const [res, setRes] = useState<ProjectDataType[]>([initProjectDatas]);
+  const [allDatas, setAllDatas] = useState<ProjectDataType[]>([initProjectDatas]);
   const deleteRow = (event: any) => {
-    console.log(event.target.id);
+    API()
+      .delete(`/projects/${event.target.id}`)
+      .then((res) => {
+        if(res.data.message == "success") {
+          console.log(res.data);
+          fetchAllData()
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      })
   }
   const viewRow = (event: any) => {
-    console.log(event.target.id);
+    navigate(`/launchpad/view/${event.target.id}`);
   }
   const columns = useMemo<TableColumn<ProjectDataType>[]>(
     () => [
@@ -52,7 +64,10 @@ export const Manage: React.FC = () => {
     ],[],
     );
   useEffect(() => {
-    API()
+    fetchAllData()
+  }, []);
+  const fetchAllData = async () =>{
+    await API()
       .get(`/projects`)
       .then((res) => {
         const initDatas = res.data.map((item: any, index: number) => {
@@ -69,30 +84,31 @@ export const Manage: React.FC = () => {
           }
         });
         setRes(initDatas);
+        setAllDatas(initDatas);
       })
       .catch((error) => {
         console.log(error);
       })
-  }, []);
+  }
   const handleOnChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     let filterData = [] as ProjectDataType[];
     switch (event.target.value) {
       case "upcoming":
-        filterData = res.filter((item) => {
+        filterData = allDatas.filter((item) => {
           return Date.parse(item.projectDate) > Date.now()
         });
         console.log(filterData);
         setRes(filterData);
         break;
       case "ended":
-        filterData = res.filter((item) => {
+        filterData = allDatas.filter((item) => {
           return Date.parse(item.projectDate) <= Date.now()
         });
         console.log(filterData);
         setRes(filterData);
         break;
       default:
-        filterData = res;
+        filterData = allDatas;
         setRes(filterData);
         console.log(filterData);
         break;

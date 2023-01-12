@@ -38,7 +38,6 @@ export const Launchpad: React.FC = () => {
   const viewDetail = (viewId?: string) => {
     navigate(`/launchpad/view/${viewId}`);
   };
-  const { isConnected, address } = useAccount()
   return (
     <div className="launchpad">
       <Container>

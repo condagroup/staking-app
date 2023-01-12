@@ -30,7 +30,7 @@ function App() {
           <Route path="/launchpad" element={<Launchpad />} />
           <Route path="/launchpad/create" element={<Create />} />
           <Route path="/launchpad/view/:viewId" element={<View />} />
-          <Route path="/launchpad/manage" element={(isConnected && address === "0x8F3a535e29C39F88c66B8317062cE33315f2253E") && <Manage />} />
+          <Route path="/launchpad/manage" element={(isConnected && address === process.env.REACT_APP_ADMIN_ADDRESS) && <Manage />} />
         </Routes>
         <Footer />
       </ThemeProvider>
